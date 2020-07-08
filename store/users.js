@@ -12,21 +12,21 @@ export const actions = {
   buildUsers({commit}) {
     const users = [
       {
-        login: 'testuser',
-        name: 'Денис',
+        username: 'testuser',
+        name: 'Сергей',
         password: 'Qwerty123',
         mail: 'testuser@yndex.ru',
-        photo: 'https://sun9-46.userapi.com/c9899/u15395276/-6/x_f4f28d9c.jpg'
+        photo: 'https://sun9-54.userapi.com/c847121/v847121736/c115f/AQOYaoT42Ac.jpg'
       },
       {
-        login: 'testuser2',
+        username: 'testuser2',
         name: 'Алексей',
         password: 'Qwerty1234',
         mail: 'testuser2@yndex.ru',
         photo: 'https://sun9-61.userapi.com/c622224/v622224788/3b2b8/W3kyiPJrR04.jpg'
       },
       {
-        login: 'testuser3',
+        username: 'testuser3',
         name: 'Дмитрий',
         password: 'Qwerty1235',
         mail: 'testuser3@yndex.ru',

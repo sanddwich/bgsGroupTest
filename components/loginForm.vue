@@ -104,14 +104,16 @@ export default {
       }
 
       setTimeout(() => {
-        this.$store.getters['users/users'].find(
-          (user) =>
-            user.login === formData.username &&
-            user.password === formData.password
+        const userData = this.$store.getters['users/users'].find((user) =>
+          formData.username === user.username &&
+          formData.password === user.password
+            ? user
+            : false
         )
-          ? loginUser(formData.username, this.$store, this.$router)
+        !!userData
+          ? loginUser(userData, this.$store, this.$router)
           : errorLogin(document.querySelector('.error'))
-        
+
         this.loading = false
       }, 2000)
 
@@ -120,8 +122,10 @@ export default {
   },
 }
 
-function loginUser(username, store, router) {
-  store.dispatch('login')
+function loginUser(user, store, router) {  
+  delete user.password
+  user.token = Date.now().toString()
+  store.dispatch('login', user)
   router.push('/')
 }
 

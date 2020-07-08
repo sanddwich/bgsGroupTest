@@ -6,14 +6,11 @@
         <v-card class="ma-5">
           <v-img
             style="max-height:400px;"
-            src="https://sun9-61.userapi.com/c622224/v622224788/3b2b8/W3kyiPJrR04.jpg"
+            :src="userData.photo"
           ></v-img>
-          <v-card-title>Denis</v-card-title>
+          <v-card-title>{{userData.name}}</v-card-title>
           <v-card-text>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis,
-            error! Soluta, consequatur. Corporis maxime minima esse! Dolore,
-            dolor laborum! Quis expedita enim ipsam quaerat pariatur totam quae
-            blanditiis saepe nemo.
+            E-mail: {{userData.mail}}
           </v-card-text>
         </v-card>
       </v-col>
@@ -24,5 +21,12 @@
 <script>
 export default {
   middleware: ['auth'],
+  data: () => ({}),
+  computed: {
+    userData() {
+      return this.data = this.$store.getters.userData;
+    }
+  },
+  mounted() {}
 }
 </script>

@@ -3,13 +3,13 @@
     <nav class="navigation">
       <ul>
         <nuxt-link to="/">
-          <li>UserProfile</li>
+          <li>Профиль пользователя</li>
         </nuxt-link>
         <nuxt-link to="/additional">
-          <li>Additional</li>
+          <li>Все пользователи</li>
         </nuxt-link>
         <nuxt-link to="#">
-          <li @click.prevent="toLoginPage">Logout</li>
+          <li @click.prevent="toLoginPage">Выход</li>
         </nuxt-link>
       </ul>
     </nav>
