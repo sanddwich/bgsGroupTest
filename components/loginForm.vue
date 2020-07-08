@@ -58,6 +58,7 @@
 
 <script>
 import { required, minLength } from 'vuelidate/lib/validators'
+
 export default {
   name: 'LoginForm',
   data: () => ({
@@ -112,7 +113,7 @@ export default {
         )
         !!userData
           ? loginUser(userData, this.$store, this.$router)
-          : errorLogin(document.querySelector('.error'))
+          : errorLogin(document.querySelector('.error'), this)
 
         this.loading = false
       }, 2000)
@@ -122,14 +123,17 @@ export default {
   },
 }
 
-function loginUser(user, store, router) {  
+function loginUser(user, store, router) {
   delete user.password
   user.token = Date.now().toString()
   store.dispatch('login', user)
   router.push('/')
 }
 
-function errorLogin(message) {
+function errorLogin(message, context) {
+  context.username = context.password = ''
+  context.$v.$touch()
+
   message.style.display = ''
   setTimeout(() => {
     message.style.display = 'none'
