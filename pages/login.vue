@@ -7,8 +7,7 @@
 </template>
 
 <script>
-import LoginForm from '@/components/loginForm';
-import {Observer, Observable} from 'rxjs';
+import LoginForm from '@/components/loginForm'
 
 export default {
   layout: 'auth',
@@ -16,23 +15,22 @@ export default {
     LoginForm,
   },
   data: () => ({
-    users: []
+    users: [],
   }),
   async fetch({ store }) {
     if (store.getters['users/users'].length === 0) {
-      await store.dispatch('users/buildUsers');
+      await store.dispatch('users/buildUsers')
     }
   },
   methods: {
     getUsers() {
-      return this.$store.getters['users/users'];
-    }
+      return this.$store.getters['users/users']
+    },
   },
   mounted() {
-    const $stream = this.getUsers()
-    console.log($stream);
-    // $stream.subscribe((stream) => {
-
+    // const users = this.getUsers();
+    // users.forEach((user) => {
+    //   console.log(user.mail);
     // });
   },
 }
