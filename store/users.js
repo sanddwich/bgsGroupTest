@@ -28,7 +28,7 @@ export const actions = {
       {
         username: 'testuser3',
         name: 'Дмитрий',
-        password: 'Qwerty1235',
+        password: 'Qwerty12345',
         mail: 'testuser3@yndex.ru',
         photo: 'https://sun9-50.userapi.com/pEniEbwsPTk7QoTtT3jp1ePoVep0_G-h2D1Kcw/do6NB-nPD5I.jpg'
       }      
